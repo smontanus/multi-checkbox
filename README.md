@@ -10,7 +10,7 @@ Multi-Checkbox is a web component that utilizes multiple checkboxes in a dropdow
     <script type="module" src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 
 ### Usage
-The Multi-Checkbox component utilizes the custom element tag <multi-checkbox>. Within the custom tag the component requires a slotted <ul> element with the slot attribute set to "check-values". Within the slotted <ul> each <li> element represents a checkbox label and value for the component. The custom element has two attributes:
+The Multi-Checkbox component utilizes the custom element tag ```html<multi-checkbox>```. Within the custom tag the component requires a slotted <ul> element with the slot attribute set to "check-values". Within the slotted <ul> each <li> element represents a checkbox label and value for the component. The custom element has two attributes:
 
 * separator - The separator string used between the checked values.
 * value - The custom element component value.
