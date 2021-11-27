@@ -1,0 +1,68 @@
+/* Multi Checkbox web component CSS variables and their default values. */
+/* multi-checkbox {
+    --mc-border: 1px solid #7c7c7c;
+    --mc-border-radius: 3px;
+    --mc-close-button-background: #ffffff;
+    --mc-close-button-color: rgb(62, 141, 214);
+    --mc-dropdown-background: #ffffff;
+    --mc-dropdown-color: #adadad;
+    --mc-dropdown-line-height: 1.85em;
+    --mc-font: 400 .85em Arial;
+    --mc-target-background: #ffffff;
+    --mc-toggle-button-background: rgb(62, 141, 214);
+    --mc-toggle-button-color: #ffffff;
+} */
+
+multi-checkbox {
+    /* Element */
+    --mc-border: 1px solid #000000;
+    --mc-border-radius: 2px;
+    --mc-display: inline-block;
+    --mc-font: 400 0.9em Arial;
+    --mc-vertical-align: middle;
+
+    /* Dropdown */
+    --mc-dropdown-background: #efefef;
+    --mc-dropdown-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.35);
+    --mc-dropdown-width: 209px;
+
+    /* Input */
+    --mc-target-background: #efefef;
+    --mc-target-color: #000000;
+    --mc-target-cursor: default;
+    --mc-target-height: 28px;
+    --mc-target-margin: 0;
+    --mc-target-max-height: default;
+    --mc-target-min-height: default;
+    --mc-target-max-width: default;
+    --mc-target-min-width: default;
+    --mc-target-padding: 0px 0px 0px 3px;
+    --mc-target-outline: none;
+    --mc-target-width: 175px;
+
+    /* Dropdown Line Items */
+    --mc-dropdown-color: #000000;
+    --mc-dropdown-line-height: 2em;
+    --mc-ul-margin: 5px;
+    --mc-ul-padding: 0;
+
+    /* Toggle Button */
+    --mc-toggle-button-background: #ffffff;
+    --mc-toggle-button-color: #000000;
+    --mc-toggle-button-cursor: pointer;
+    --mc-toggle-button-height: 30px;
+    --mc-toggle-button-outline: none;
+    --mc-toggle-button-width: 30px;
+
+    /* Close Button */
+    --mc-close-button-background: #efefef;
+    --mc-close-button-border: none;
+    --mc-close-button-border-radius: default;
+    --mc-close-button-color: #000000;
+    --mc-close-button-cursor: pointer;
+    --mc-close-button-display: block;
+    --mc-close-button-height: 30px;
+    --mc-close-button-margin: 5px auto;
+    --mc-close-button-outline: none;
+    --mc-close-button-width: 30px;
+}

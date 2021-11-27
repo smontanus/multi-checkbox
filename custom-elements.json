@@ -1,0 +1,156 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "README.md",
+    "modules": [
+      {
+        "kind": "javascript-module",
+        "path": "/multi-checkbox.js",
+        "declarations": [
+          {
+            "kind": "class",
+            "description": "Creates a new MultiCheckbox custom HTML element. Utilized in HTML as the\n<multi-checkbox> tag.",
+            "name": "MultiCheckbox",
+            "members": [
+              {
+                "kind": "field",
+                "name": "value",
+                "return": {
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                "parameters": [
+                  {
+                    "description": "The new value of the element.",
+                    "name": "newValue",
+                    "type": {
+                      "text": "string"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "field",
+                "name": "separator",
+                "return": {
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                "parameters": [
+                  {
+                    "description": "The new value of the item separator.",
+                    "name": "newValue",
+                    "type": {
+                      "text": "string"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "method",
+                "name": "updateItems",
+                "return": {
+                  "type": {
+                    "text": "void"
+                  }
+                }
+              },
+              {
+                "kind": "method",
+                "name": "addCheckBoxes",
+                "return": {
+                  "type": {
+                    "text": "void"
+                  }
+                }
+              },
+              {
+                "kind": "method",
+                "name": "updateValue",
+                "return": {
+                  "type": {
+                    "text": "void"
+                  }
+                }
+              },
+              {
+                "kind": "method",
+                "name": "showDropDown",
+                "return": {
+                  "type": {
+                    "text": "void"
+                  }
+                }
+              },
+              {
+                "kind": "method",
+                "name": "hideDropDown",
+                "return": {
+                  "type": {
+                    "text": "void"
+                  }
+                }
+              },
+              {
+                "kind": "method",
+                "name": "toggleDropDown",
+                "return": {
+                  "type": {
+                    "text": "void"
+                  }
+                }
+              },
+              {
+                "kind": "field",
+                "name": "dropDownVisible",
+                "type": {
+                  "text": "boolean"
+                },
+                "default": "false"
+              },
+              {
+                "kind": "field",
+                "name": "inputRadius"
+              },
+              {
+                "kind": "field",
+                "name": "toggleRadius"
+              },
+              {
+                "kind": "field",
+                "name": "items",
+                "type": {
+                  "text": "array"
+                },
+                "default": "[]"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "separator"
+              },
+              {
+                "name": "value"
+              }
+            ],
+            "superclass": {
+              "name": "HTMLElement"
+            },
+            "tagName": "multi-checkbox",
+            "customElement": true
+          }
+        ],
+        "exports": [
+          {
+            "kind": "custom-element-definition",
+            "name": "multi-checkbox",
+            "declaration": {
+              "name": "MultiCheckbox",
+              "module": "multi-checkbox.js"
+            }
+          }
+        ]
+      }
+    ]
+  }
