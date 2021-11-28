@@ -3,7 +3,7 @@
  * @fileOverview Multi-checkbox vanilla javascript component. Provides
  * an input with a dropdown of multiple checkboxes that are concatenated.
  * in the input when selected. See the README file for usage.
- * @version build_01
+ * @version 0.1.5
  * @author Stephen Montanus <steve@stevemontanus.com>
  * @copyright ©2021 Stephen Montanus Software Engineering.
  * @license MIT
@@ -268,7 +268,7 @@ export class MultiCheckbox extends HTMLElement {
 
     /**
      * @name hideDropDown
-     * @description Hide the drop down item list. Used by the close button 'click' event.
+     * @description Hide the drop down item list.
      * @return {void}
      */
     hideDropDown() {
@@ -383,9 +383,6 @@ export class MultiCheckbox extends HTMLElement {
                 let valueString = this.getAttribute('value');
                 // Replace the separator string.
                 valueString = valueString.split(oldVal).join(newVal);
-                console.log(oldVal);
-                console.log(newVal);
-                console.log(valueString);
                 // Update the input and custom element value.
                 this.shadowRoot.querySelector('input').value = valueString;
                 this.setAttribute('value', valueString);
@@ -395,4 +392,4 @@ export class MultiCheckbox extends HTMLElement {
     }
 }
 
-window.customElements.define('multi-checkbox', MultiCheckbox);
+customElements.define('multi-checkbox', MultiCheckbox);

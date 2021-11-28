@@ -1,17 +1,4 @@
 /* Multi Checkbox web component CSS variables and their default values. */
-/* multi-checkbox {
-    --mc-border: 1px solid #7c7c7c;
-    --mc-border-radius: 3px;
-    --mc-close-button-background: #ffffff;
-    --mc-close-button-color: rgb(62, 141, 214);
-    --mc-dropdown-background: #ffffff;
-    --mc-dropdown-color: #adadad;
-    --mc-dropdown-line-height: 1.85em;
-    --mc-font: 400 .85em Arial;
-    --mc-target-background: #ffffff;
-    --mc-toggle-button-background: rgb(62, 141, 214);
-    --mc-toggle-button-color: #ffffff;
-} */
 
 multi-checkbox {
     /* Element */
