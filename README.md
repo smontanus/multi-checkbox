@@ -1,7 +1,6 @@
 ## Multi-Checkbox Web Component
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
-[![Published on npm](https://img.shields.io/badge/npm-published-blue)](https:www.npm.org/smonmtanus)
-[![Version](https://img.shields.io/badge/version-0.1.5-brightgreen)](https://github.com/smontanus/multi-checkbox)
+[![Published on npm](https://img.shields.io/badge/npm-published-blue)](https://www.npmjs.com/package/multi-checkbox)
+[![Version](https://img.shields.io/badge/version-0.1.6-brightgreen)](https://github.com/smontanus/multi-checkbox)
 
 Multi-Checkbox is a web component that utilizes multiple checkboxes in a dropdown list to populate the value of an input. It is written in pure Javascript with no dependencies.
 
@@ -10,7 +9,7 @@ Multi-Checkbox is a web component that utilizes multiple checkboxes in a dropdow
     `npm install multi-checkbox`
 
 * **CDN**
-    ```<script type="module" src="https://????????????????????"></script>```
+    ```<script type="module" src="https://www.unpkg.com/multi-checkbox/multi-checkbox.js"></script>```
 
 ### Usage
 The Multi-Checkbox component utilizes the custom element tag `<multi-checkbox>`. Within the custom tag the component requires a slotted `<ul>` element with the slot attribute set to `check-values`. Within the slotted `<ul>` each `<li>` element represents a checkbox label and value for the component. The custom element has two attributes:
@@ -30,7 +29,7 @@ The component will automatically update when attributes are set dynamically. So 
 </multi-checkbox>
 ```
 
-### CSS
+### CSS Style Variables
 The following CSS property variables, along with their default values, are available for custom styling.
 |Property Variable|Default Value|
 |---|---|
@@ -80,6 +79,15 @@ The following CSS property variables, along with their default values, are avail
 |--mc-close-button-margin|5px auto|
 |--mc-close-button-outline|none|
 |--mc-close-button-width|30px|
+
+### Changing the Tag Name
+The Multi-Checkbox component uses the `<multi-checkbox>` tag in html. In certain cases users may want, or need, to change the tag name. This can be accomplished in Javascript by subclassing the element and registering this subclass under a new tag name.
+
+```javascript
+import {MultiCheckbox} from 'multi-checkbox';
+
+customElements.define('my-new-tag', class extends MultiCheckbox{});
+```
 
 ### Contributing
 1. Fork it!
