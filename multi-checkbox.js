@@ -3,7 +3,7 @@
  * @fileOverview Multi-checkbox vanilla javascript component. Provides
  * an input with a dropdown of multiple checkboxes that are concatenated.
  * in the input when selected. See the README file for usage.
- * @version 0.1.6
+ * @version 0.1.7
  * @author Stephen Montanus <steve@stevemontanus.com>
  * @copyright ©2021 Stephen Montanus Software Engineering.
  * @license MIT
@@ -15,6 +15,8 @@ template.innerHTML = `
 <style>
     .multi-checkbox {
         display: var(--mc-display, inline-block);
+        margin: var(--mc-margin, 0);
+        width: initial;
     }
 
     .checkbox-container {
@@ -31,10 +33,11 @@ template.innerHTML = `
         -moz-box-shadow: var(--mc-dropdown-box-shadow, 3px 3px 5px 1px rgba(0,0,0,0.35));
         display: block;
         position: absolute;
+        text-align: var(--mc-dropdown-text-align, left);
         transform: scale(1, 0);
         transform-origin: top left;
         transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-        width: var(--mc-dropdown-width, 209px);
+        width: var(--mc-dropdown-width, fit-content);
     }
 
     input {
@@ -63,11 +66,12 @@ template.innerHTML = `
 
     ::slotted(ul) {
         color: var(--mc-dropdown-color, #000000);
-        font: var(--mc-font, 400 0.9em Arial);
+        font: var(--mc-font, 400 0.9em Arial) !important;
         line-height: var(--mc-dropdown-line-height, 2em);
         list-style-type: none;
         margin: var(--mc-ul-margin, 5px);
         padding: var(--mc-ul-padding, 0);
+        overflow-wrap: break-word;
     }
 
     #toggle-button {
@@ -91,10 +95,10 @@ template.innerHTML = `
         color: var(--mc-close-button-color, #000000);
         cursor: var(--mc-close-button-cursor, pointer);
         display: var(--mc-close-button-display, block);
-        height: var(--mc-close-button-height, 30px);
+        height: var(--mc-close-button-height, 22px);
         margin: var(--mc-close-button-margin, 5px auto);
         outline: var(--mc-close-button-outline, none);
-        width: var(--mc-close-button-width, 30px);
+        width: var(--mc-close-button-width, 22px);
     }
 </style>
 
@@ -105,7 +109,8 @@ template.innerHTML = `
             <path fill="currentColor" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,
             0.001l-139.39,139.393L25.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,
             5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
-            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
+            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,
+            325.607,79.393z"/>
         </svg>
     </button>
     <div class="checkbox-container">
@@ -192,11 +197,13 @@ export class MultiCheckbox extends HTMLElement {
      * @return {void}
      */
     updateItems() {
-        // Remove dummy <ul> element.
+        // Remove original slot data.
         const itemList = this.shadowRoot.querySelector('slot')
             .assignedNodes({flatten: true})[0];
-        itemList.removeChild(itemList.childNodes[itemList.childNodes.length - 1]);
-        // Re-assign the items variable to reflect current component list items.
+        if (itemList.childNodes[itemList.childNodes.length - 1].nodeName == 'UL') {
+            itemList.removeChild(itemList.childNodes[itemList.childNodes.length - 1]);
+        }
+        // Update slot with new elements.
         this.items = this.shadowRoot.querySelector('slot')
             .assignedElements({flatten: true})[0]
             .children;
@@ -214,8 +221,11 @@ export class MultiCheckbox extends HTMLElement {
      */
     addCheckBoxes() {
         for (let i = 0; i < this.items.length; i++) {
-            this.items[i].innerHTML = '<input type="checkbox" id="item-' + i +
-            '" value="' + this.items[i].innerHTML + '" /> ' +
+            this.items[i].innerHTML = '<input type="checkbox" style="' +
+            'height: var(--mc-checkbox-height, auto); ' +
+            'vertical-align: middle; ' +
+            'width: var(--mc-checkbox-width, auto);" ' +
+            'id="item-' + i + '" value="' + this.items[i].innerHTML + '" /> ' +
             this.items[i].innerHTML;
         }
     }
@@ -336,15 +346,12 @@ export class MultiCheckbox extends HTMLElement {
     disconnectedCallback() {
         // Remove button event listeners.
         this.shadowRoot.querySelector('#toggle-button')
-            .removeEventListener();
+            .removeEventListener('click', () => this.toggleDropDown());
         this.shadowRoot.querySelector('#close-button')
-            .removeEventListener();
+            .removeEventListener('click', () => this.toggleDropDown());
         // Remove slot event listener.
         this.shadowRoot.querySelector('slot')
-            .removeEventListener();
-        // Remove checkbox event listener.
-        this.shadowRoot.querySelector('input[type="checkbox"]')
-            .removeEventListener();
+            .removeEventListener('slotchange', () => this.updateItems());
     }
 
     /**

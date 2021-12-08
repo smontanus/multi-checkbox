@@ -38,10 +38,12 @@ The following CSS property variables, along with their default values, are avail
 |--mc-border-radius|2px|
 |--mc-display|inline-block|
 |--mc-font|400 0.9em Arial|
+|--mc-margin|0|
 |--mc-vertical-align|middle|
 |***Dropdown***|
 |--mc-dropdown-background|#efefef|
 |--mc-dropdown-box-shadow|3px 3px 5px 1px rgba(0,0,0,0.35)|
+|--mc-dropdown-text-align|left|
 |--mc-dropdown-width|209px|
 |***Input***|
 |--mc-target-background|#efefef|
@@ -55,18 +57,22 @@ The following CSS property variables, along with their default values, are avail
 |--mc-target-min-width|default|
 |--mc-target-padding|0px 0px 0px 3px|
 |--mc-target-outline|none|
+|--mc-vertical-align|middle|
 |--mc-target-width|175px|
 |***Dropdown Line Items***|
 |--mc-dropdown-color|#000000|
 |--mc-dropdown-line-height|2em|
 |--mc-ul-margin|5px|
 |--mc-ul-padding|0|
+|--mc-checkbox-height|auto|
+|--mc-checkbox-width|auto|
 |***Toggle Button***|
 |--mc-toggle-button-background|#ffffff|
 |--mc-toggle-button-color|#000000|
 |--mc-toggle-button-cursor|pointer|
 |--mc-toggle-button-height|30px|
 |--mc-toggle-button-outline|none|
+|--mc-vertical-align|middle|
 |--mc-toggle-button-width|30px|
 |***Close Button***|
 |--mc-close-button-background|#efefef|
@@ -75,10 +81,10 @@ The following CSS property variables, along with their default values, are avail
 |--mc-close-button-color|#000000|
 |--mc-close-button-cursor|pointer|
 |--mc-close-button-display|block|
-|--mc-close-button-height|30px|
+|--mc-close-button-height|22px|
 |--mc-close-button-margin|5px auto|
 |--mc-close-button-outline|none|
-|--mc-close-button-width|30px|
+|--mc-close-button-width|22px|
 
 ### Changing the Tag Name
 The Multi-Checkbox component uses the `<multi-checkbox>` tag in html. In certain cases users may want, or need, to change the tag name. This can be accomplished in Javascript by subclassing the element and registering this subclass under a new tag name.

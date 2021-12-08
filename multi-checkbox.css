@@ -6,12 +6,14 @@ multi-checkbox {
     --mc-border-radius: 2px;
     --mc-display: inline-block;
     --mc-font: 400 0.9em Arial;
+    --mc-margin: 0;
     --mc-vertical-align: middle;
 
     /* Dropdown */
     --mc-dropdown-background: #efefef;
     --mc-dropdown-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.35);
-    --mc-dropdown-width: 209px;
+    --mc-dropdown-text-align: left;
+    --mc-dropdown-width: fit-content;
 
     /* Input */
     --mc-target-background: #efefef;
@@ -25,6 +27,7 @@ multi-checkbox {
     --mc-target-min-width: default;
     --mc-target-padding: 0px 0px 0px 3px;
     --mc-target-outline: none;
+    --mc-vertical-align: middle;
     --mc-target-width: 175px;
 
     /* Dropdown Line Items */
@@ -32,6 +35,8 @@ multi-checkbox {
     --mc-dropdown-line-height: 2em;
     --mc-ul-margin: 5px;
     --mc-ul-padding: 0;
+    --mc-checkbox-height: auto;
+    --mc-checkbox-width: auto;
 
     /* Toggle Button */
     --mc-toggle-button-background: #ffffff;
@@ -39,6 +44,7 @@ multi-checkbox {
     --mc-toggle-button-cursor: pointer;
     --mc-toggle-button-height: 30px;
     --mc-toggle-button-outline: none;
+    --mc-vertical-align: middle;
     --mc-toggle-button-width: 30px;
 
     /* Close Button */
@@ -48,8 +54,8 @@ multi-checkbox {
     --mc-close-button-color: #000000;
     --mc-close-button-cursor: pointer;
     --mc-close-button-display: block;
-    --mc-close-button-height: 30px;
+    --mc-close-button-height: 22px;
     --mc-close-button-margin: 5px auto;
     --mc-close-button-outline: none;
-    --mc-close-button-width: 30px;
+    --mc-close-button-width: 22px;
 }
