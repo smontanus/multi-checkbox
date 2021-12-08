@@ -1,6 +1,11 @@
 Multi-Checkbox Changelog
 --------------
-#### Version 0.1.7 (2021-11-28)
+#### Version 0.1.8 (2021-12-08)
+
+- Version sync to 0.1.8
+
+
+#### Version 0.1.7 (2021-12-08)
 
 - Fixed bug clearing slot content on dynamic update.
 - Added additional CSS variables.
