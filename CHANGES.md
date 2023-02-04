@@ -1,5 +1,10 @@
 Multi-Checkbox Changelog
 --------------
+#### Version 0.1.10 (2023-02-04)
+
+- Fixed text measuring bug.
+
+
 #### Version 0.1.9 (2023-02-04)
 
 - Exposed dropdown z-index css variable.

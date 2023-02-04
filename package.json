@@ -1,6 +1,6 @@
 {
   "name": "multi-checkbox",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "A vanilla javascript multi-checkbox dropdown web component.",
   "type": "module",
   "main": "multi-checkbox.js",

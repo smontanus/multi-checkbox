@@ -3,7 +3,7 @@
  * @fileOverview Multi-checkbox vanilla javascript component. Provides
  * an input with a dropdown of multiple checkboxes that are concatenated.
  * in the input when selected. See the README file for usage.
- * @version 0.1.9
+ * @version 0.1.10
  * @author Stephen Montanus <steve@stevemontanus.com>
  * @copyright ©2021 Stephen Montanus Software Engineering.
  * @license MIT
@@ -62,8 +62,10 @@ template.innerHTML = `
     }
 
     #measure-test {
+        left: 0;
         position: absolute;
         visibility: hidden;
+        white-space: nowrap;
     }
 
     svg {
