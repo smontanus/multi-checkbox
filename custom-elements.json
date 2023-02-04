@@ -102,6 +102,15 @@
               }
             },
             {
+              "kind": "method",
+              "name": "measureText",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
               "kind": "field",
               "name": "dropDownVisible",
               "type": {

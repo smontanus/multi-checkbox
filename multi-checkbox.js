@@ -3,7 +3,7 @@
  * @fileOverview Multi-checkbox vanilla javascript component. Provides
  * an input with a dropdown of multiple checkboxes that are concatenated.
  * in the input when selected. See the README file for usage.
- * @version 0.1.8
+ * @version 0.1.9
  * @author Stephen Montanus <steve@stevemontanus.com>
  * @copyright ©2021 Stephen Montanus Software Engineering.
  * @license MIT
@@ -38,6 +38,7 @@ template.innerHTML = `
         transform-origin: top left;
         transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
         width: var(--mc-dropdown-width, fit-content);
+        z-index: var(--mc-dropdown-z-index, 0);
     }
 
     input {
@@ -58,6 +59,11 @@ template.innerHTML = `
         outline: var(--mc-target-outline, none);
         vertical-align: var(--mc-vertical-align, middle);
         width: var(--mc-target-width, 175px);
+    }
+
+    #measure-test {
+        position: absolute;
+        visibility: hidden;
     }
 
     svg {
@@ -104,6 +110,7 @@ template.innerHTML = `
 
 <div class="multi-checkbox">
     <input type="text" readonly disabled />
+    <span id="measure-test"></span>
     <button id="toggle-button">
         <svg x="0px" y="0px" viewBox="0 0 330 330">
             <path fill="currentColor" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,
@@ -152,6 +159,7 @@ export class MultiCheckbox extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         // Component variables.
         this.dropDownVisible = false;
+        // this.sizeVisible = this.shadowRoot.querySelector('input').clientWidth;
         this.inputRadius = this.shadowRoot.querySelector('input')
             .style.borderBottomLeftRadius;
         this.toggleRadius = this.shadowRoot.querySelector('#toggle-button')
@@ -311,6 +319,24 @@ export class MultiCheckbox extends HTMLElement {
     }
 
     /**
+     * @name measureText
+     * @description Measure the element text in pixels compared to input element
+     * width.
+     * @return {boolean}
+     */
+    measureText() {
+        const valuePixelWidth = this.shadowRoot.querySelector('#measure-test')
+            .getBoundingClientRect().width;
+        const inputPixelWidth = this.shadowRoot.querySelector('input')
+            .getBoundingClientRect().width;
+        if (valuePixelWidth > inputPixelWidth) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * @name connectedCallback
      * @description Fires when an instance is inserted into the document.
      * @return {void}
@@ -365,8 +391,18 @@ export class MultiCheckbox extends HTMLElement {
     attributeChangedCallback(attrName, oldVal, newVal) {
         switch (attrName) {
         case 'value':
+            // Update the text measurement hidden span element.
+            this.shadowRoot.querySelector('#measure-test').textContent = newVal;
             // Update the input.
-            this.shadowRoot.querySelector('input').value = newVal;
+            if (this.measureText()) { // Value string is wider than input width.
+                // Get the separator string.
+                const sep = this.getAttribute('separator');
+                // Split newVal into array using separator and get length.
+                const newValCount = newVal.split(sep).length;
+                this.shadowRoot.querySelector('input').value = newValCount + ' Selected';
+            } else { // Value string is narrower than input width.
+                this.shadowRoot.querySelector('input').value = newVal;
+            }
             if (this.dropDownVisible == false) {
                 // Get the separator string.
                 const sep = this.getAttribute('separator');

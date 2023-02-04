@@ -1,8 +1,14 @@
 Multi-Checkbox Changelog
 --------------
+#### Version 0.1.9 (2023-02-04)
+
+- Exposed dropdown z-index css variable.
+- Implemented summary count when value width overflows display.
+
+
 #### Version 0.1.8 (2021-12-08)
 
-- Version sync to 0.1.8
+- Version sync to 0.1.8.
 
 
 #### Version 0.1.7 (2021-12-08)
