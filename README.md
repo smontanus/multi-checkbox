@@ -1,6 +1,6 @@
 ## Multi-Checkbox Web Component
 [![Published on npm](https://img.shields.io/badge/npm-published-blue)](https://www.npmjs.com/package/multi-checkbox)
-[![Version](https://img.shields.io/badge/version-0.1.10-brightgreen)](https://github.com/smontanus/multi-checkbox)
+[![Version](https://img.shields.io/badge/version-0.1.11-brightgreen)](https://github.com/smontanus/multi-checkbox)
 
 Multi-Checkbox is a web component that utilizes multiple checkboxes in a dropdown list to populate the value of an input. It is written in pure Javascript with no dependencies.
 
@@ -40,12 +40,13 @@ The following CSS property variables, along with their default values, are avail
 |--mc-font|400 0.9em Arial|
 |--mc-margin|0|
 |--mc-vertical-align|middle|
+|--mc-z-index|0|
 |***Dropdown***|
 |--mc-dropdown-background|#efefef|
 |--mc-dropdown-box-shadow|3px 3px 5px 1px rgba(0,0,0,0.35)|
+|--mc-dropdown-max-height|100px|
 |--mc-dropdown-text-align|left|
 |--mc-dropdown-width|209px|
-|--mc-dropdown-z-index|0|
 |***Input***|
 |--mc-target-background|#efefef|
 |--mc-target-color|#000000|

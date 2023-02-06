@@ -3,7 +3,7 @@
  * @fileOverview Multi-checkbox vanilla javascript component. Provides
  * an input with a dropdown of multiple checkboxes that are concatenated.
  * in the input when selected. See the README file for usage.
- * @version 0.1.10
+ * @version 0.1.11
  * @author Stephen Montanus <steve@stevemontanus.com>
  * @copyright ©2021 Stephen Montanus Software Engineering.
  * @license MIT
@@ -17,6 +17,7 @@ template.innerHTML = `
         display: var(--mc-display, inline-block);
         margin: var(--mc-margin, 0);
         width: initial;
+        z-index: var(--mc-z-index, 0);
     }
 
     .checkbox-container {
@@ -32,13 +33,15 @@ template.innerHTML = `
         -webkit-box-shadow: var(--mc-dropdown-box-shadow, 3px 3px 5px 1px rgba(0,0,0,0.35));
         -moz-box-shadow: var(--mc-dropdown-box-shadow, 3px 3px 5px 1px rgba(0,0,0,0.35));
         display: block;
+        max-height: var(--mc-dropdown-max-height, 100px);
         position: absolute;
         text-align: var(--mc-dropdown-text-align, left);
         transform: scale(1, 0);
         transform-origin: top left;
         transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+        overflow-y: scroll;
         width: var(--mc-dropdown-width, fit-content);
-        z-index: var(--mc-dropdown-z-index, 0);
+        z-index: var(--mc-z-index, 0);
     }
 
     input {
@@ -59,6 +62,7 @@ template.innerHTML = `
         outline: var(--mc-target-outline, none);
         vertical-align: var(--mc-vertical-align, middle);
         width: var(--mc-target-width, 175px);
+        z-index: var(--mc-z-index, 0);
     }
 
     #measure-test {
@@ -94,6 +98,7 @@ template.innerHTML = `
         outline: var(--mc-toggle-button-outline, none);
         vertical-align: var(--mc-vertical-align, middle);
         width: var(--mc-toggle-button-width, 30px);
+        z-index: var(--mc-z-index, 0);
     }
 
     #close-button {
@@ -161,7 +166,6 @@ export class MultiCheckbox extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         // Component variables.
         this.dropDownVisible = false;
-        // this.sizeVisible = this.shadowRoot.querySelector('input').clientWidth;
         this.inputRadius = this.shadowRoot.querySelector('input')
             .style.borderBottomLeftRadius;
         this.toggleRadius = this.shadowRoot.querySelector('#toggle-button')

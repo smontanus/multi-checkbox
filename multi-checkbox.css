@@ -8,13 +8,14 @@ multi-checkbox {
     --mc-font: 400 0.9em Arial;
     --mc-margin: 0;
     --mc-vertical-align: middle;
+    --mc-z-index: 0;
 
     /* Dropdown */
     --mc-dropdown-background: #efefef;
     --mc-dropdown-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.35);
+    --mc-dropdown-max-height: 100px;
     --mc-dropdown-text-align: left;
     --mc-dropdown-width: fit-content;
-    --mc-dropdown-z-index: 0;
 
     /* Input */
     --mc-target-background: #efefef;

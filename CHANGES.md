@@ -1,5 +1,11 @@
 Multi-Checkbox Changelog
 --------------
+#### Version 0.1.11 (2023-02-06)
+
+- Fixed css variables to expose element wide z-index.
+- Add css variable to expose dropdown max-height and overflow scrolling.
+
+
 #### Version 0.1.10 (2023-02-04)
 
 - Fixed text measuring bug.
